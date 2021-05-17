@@ -1,4 +1,5 @@
 <?php
+require('database/Credentials.php');
 
 /**
  * A class to manage the database
@@ -7,8 +8,8 @@ abstract class DatabaseManager
 {
     const DB_HOST = "localhost";
     const DB_NAME = "zephirquest";
-    const DB_USERNAME = Passwords::DB_USERNAME;
-    const DB_PASSWORD = Passwords::DB_PASSWORD;
+    const DB_USERNAME = Credentials::DB_USERNAME;
+    const DB_PASSWORD = Credentials::DB_PASSWORD;
 
     /**
     * Connect to the database and return it
