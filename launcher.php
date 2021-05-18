@@ -1,6 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['username'])) header('Location: index.html');
+if(!isset($_SESSION['username'])) {
+    header('Location: index.html');
+    return;
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +15,7 @@ if(!isset($_SESSION['username'])) header('Location: index.html');
         <title>Page d'accueil</title>
     </head>
     <body>
-        <h1>Bienvenu <?= $_SESSION['username'] ?> !</h1>
+        <h1>Bienvenue <?= $_SESSION['username'] ?> !</h1>
         <?php if(is_null($_SESSION['last_time'])): ?>
         <p>Vous n'avez pas encore joué</p>
         <?php else: ?>
