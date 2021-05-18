@@ -1,14 +1,3 @@
-<?php // Show errors
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
-function test(){
-    http_response_code(200);
-    header('Content-Type: application/json');
-    echo 'test';
-}
-?>
-
 <?php
 require('database/DatabaseManager.php');
 require('database/Map.php');
@@ -22,20 +11,31 @@ $routes = [
 
 // Get all of saved maps
 function maps($body){
-    $map = new Map("test", [["x"=>0,"y"=>0,"texture"=>"hole","can_hover"=>true,"can_kill"=>true,"can_use"=>false,"can_open"=>false]]);
-    return $map->getStrData();
+    $maps = Map::getAllMaps();
+    $result = [];
+    foreach($maps as $map){
+        array_push($result, $map->getData());
+    }
+    return json_encode($result);
 }
 
 // Get a map by its ID
 function mapById($body){
-    
+    $id = htmlspecialchars($_GET['id']);
+    if(!ctype_digit($id)) throw new Exception('ID must be a numeric value', 400);
+    $id = (int) $id;
+    $map = Map::getMapById($id);
+    if(is_null($map)) throw new Exception('Not foud', 404);
+    return $map->getJsonData();
 }
 
 // Upload a new map
 function newMap($body){
-    
+    $name = htmlspecialchars($_GET['name']);
+    $map = new Map($name, $body);
+    $map->pushToDB();
+    return 'OK';
 }
-
 
 try {
     // Get request data
@@ -64,8 +64,7 @@ try {
     }
 
 } catch (Exception $e) {
-    // http_response_code($e->getCode());
-    // echo '{"error": "' . $e->getMessage() . '"}';
-    // header('Content-Type: application/json');
-    echo json_encode([["x"=>0,"y"=>0,"texture"=>"hole","can_hover"=>true,"can_kill"=>true,"can_use"=>false,"can_open"=>false]]);
+    http_response_code($e->getCode());
+    echo '{"error": "' . $e->getMessage() . '"}';
+    header('Content-Type: application/json');
 }
