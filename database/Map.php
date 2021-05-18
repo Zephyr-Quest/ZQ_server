@@ -69,9 +69,4 @@ class Map extends DatabaseManager {
     public function getName(){ return $this->name; }
     public function getData(){ return $this->data; }
     public function getJsonData(){ return json_encode($this->data); }
-
-    // Setters
-    public function setName($name){ $this->name = $name; }
-    public function setData($data){ $this->data = $data; }
-
 }
