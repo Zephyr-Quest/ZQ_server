@@ -13,5 +13,17 @@ if(!isset($_SESSION['username'])) header('Location: index.html');
     </head>
     <body>
         <h1>Bienvenu <?= $_SESSION['username'] ?> !</h1>
+        <?php if(is_null($_SESSION['last_time'])): ?>
+        <p>Vous n'avez pas encore joué</p>
+        <?php else: ?>
+        <p>Votre dernier temps de partie est <?= $_SESSION['last_time'] ?></p>
+        <?php endif; ?>
+        <form action="upload_stats.php" method="POST">
+            <input type="hidden" name="last_time" value="100" />
+            <input type="submit" value="Envoyer les statistiques" title="Envoyer les statistiques" />
+        </form>
+        <br>
+        <br>
+        <a href="logout.php" title="Se déconnecter">Se déconnecter</a>
     </body>
 </html>

@@ -1,9 +1,3 @@
-<?php // Show errors
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
-?>
-
 <?php
 require('database/DatabaseManager.php');
 require('database/User.php');
@@ -19,9 +13,10 @@ $user = User::getUserByUsername($username);
 
 if(is_null($user)){
     // Create the user in the database
-    $user = new User($username);
+    $user = new User($username, null);
     $user->pushToDB();
 }
 
 $_SESSION['username'] = $user->getUsername();
+$_SESSION['last_time'] = $user->getLastTime();
 header('Location: launcher.php');
