@@ -1,3 +1,9 @@
+<?php // Show errors
+ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(-1);
+?>
+
 <?php
 require('database/DatabaseManager.php');
 require('database/Map.php');
@@ -32,7 +38,8 @@ function mapById($body){
 // Upload a new map
 function newMap($body){
     $name = htmlspecialchars($_GET['name']);
-    $map = new Map($name, $body);
+    $author = isset($_GET['author']) ? htmlspecialchars($_GET['author']) : "admin";
+    $map = new Map($name, $author, $body);
     $map->pushToDB();
     return 'OK';
 }

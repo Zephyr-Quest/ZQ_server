@@ -3,6 +3,7 @@
 class Map extends DatabaseManager {
     private $id;
     private $name;
+    private $author;
     private $data;
 
     /*
@@ -15,9 +16,10 @@ class Map extends DatabaseManager {
 
     const TABLE_NAME = "maps";
 
-    function __construct($name, $data, $id = null){
+    function __construct($name, $author, $data, $id = null){
         // Create a map
         $this->name = $name;
+        $this->author = $author;
         $this->data = $data;
         $this->id = $id;
     }
@@ -27,9 +29,10 @@ class Map extends DatabaseManager {
      */
     public function pushToDB(){
         $db = self::dbConnect();
-        $add = $db->prepare('INSERT INTO ' . self::TABLE_NAME . '(name, data) VALUES(:name, :data)');
+        $add = $db->prepare('INSERT INTO ' . self::TABLE_NAME . '(name, author, data) VALUES(:name, :author, :data)');
         $add->execute([
             'name' => $this->name,
+            'author' => $this->author,
             'data' => $this->getJsonData()
         ]);
         $add->closeCursor();
@@ -46,7 +49,7 @@ class Map extends DatabaseManager {
         $query->execute([$id]);
         $data = $query->fetch();
         $query->closeCursor();
-        return isset($data['id']) ? new Map($data['name'], json_decode($data['data'], true), $data['id']) : null;
+        return isset($data['id']) ? new Map($data['name'], $data['author'], json_decode($data['data'], true), $data['id']) : null;
     }
 
     /**
@@ -58,7 +61,7 @@ class Map extends DatabaseManager {
         $query = $db->query('SELECT * FROM ' . self::TABLE_NAME);
         $maps = [];
         while($map = $query->fetch()){
-            array_push($maps, new Map($map['name'], json_decode($map['data'], true), $map['id']));
+            array_push($maps, new Map($map['name'], $map['author'], json_decode($map['data'], true), $map['id']));
         }
         $query->closeCursor();
         return $maps;
@@ -67,6 +70,7 @@ class Map extends DatabaseManager {
     // Getters
     public function getId(){ return $this->id; }
     public function getName(){ return $this->name; }
+    public function getAuthor(){ return $this->author; }
     public function getData(){ return $this->data; }
     public function getJsonData(){ return json_encode($this->data); }
 }
