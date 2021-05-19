@@ -20,7 +20,12 @@ function maps($body){
     $maps = Map::getAllMaps();
     $result = [];
     foreach($maps as $map){
-        array_push($result, $map->getData());
+        $map_object = [
+            "name" => $map->getName(),
+            "author" => $map->getAuthor(),
+            "items" => $map->getData()
+        ];
+        array_push($result, $map_object);
     }
     return json_encode($result);
 }
