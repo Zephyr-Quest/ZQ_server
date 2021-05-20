@@ -39,14 +39,14 @@ class Map extends DatabaseManager {
     }
 
     /**
-     * Get a map by its ID
-     * @param int $id Map id
+     * Get a map by its name
+     * @param string $name Map name
      * @return Map The found task or null
      */
-    public static function getMapById($id){
+    public static function getMapByName($name){
         $db = self::dbConnect();
-        $query = $db->prepare('SELECT * FROM ' . self::TABLE_NAME . ' WHERE id=?');
-        $query->execute([$id]);
+        $query = $db->prepare('SELECT * FROM ' . self::TABLE_NAME . ' WHERE name=?');
+        $query->execute([$name]);
         $data = $query->fetch();
         $query->closeCursor();
         return isset($data['id']) ? new Map($data['name'], $data['author'], json_decode($data['data'], true), $data['id']) : null;

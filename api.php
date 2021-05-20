@@ -11,7 +11,7 @@ require('database/Map.php');
 // Describe which method for each route
 $routes = [
     "/maps" => "GET",
-    "/mapById" => "GET",
+    "/mapByName" => "GET",
     "/newMap" => "POST"
 ];
 
@@ -31,18 +31,23 @@ function maps($body){
 }
 
 // Get a map by its ID
-function mapById($body){
-    $id = htmlspecialchars($_GET['id']);
-    if(!ctype_digit($id)) throw new Exception('ID must be a numeric value', 400);
-    $id = (int) $id;
-    $map = Map::getMapById($id);
-    if(is_null($map)) throw new Exception('Not foud', 404);
-    return $map->getJsonData();
+function mapByName($body){
+    if(!isset($_GET['name'])) throw new Exception("Missing argument 'name'", 400);
+    $name = htmlspecialchars($_GET['name']);
+    $map = Map::getMapByName($name);
+    if(is_null($map)) throw new Exception('Not found', 404);
+    return json_encode([
+        "name" => $map->getName(),
+        "author" => $map->getAuthor(),
+        "items" => $map->getData()
+    ]);
 }
 
 // Upload a new map
 function newMap($body){
+    if(!isset($_GET['name'])) throw new Exception("Missing argument 'name'", 400);
     $name = htmlspecialchars($_GET['name']);
+    if(!is_null(Map::getMapByName($name))) throw new Exception("The map '" . $name . "' already exists", 400);
     $author = isset($_GET['author']) ? htmlspecialchars($_GET['author']) : "admin";
     $map = new Map($name, $author, $body);
     $map->pushToDB();
