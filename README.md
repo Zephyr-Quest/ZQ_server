@@ -24,7 +24,7 @@ To get a map with its ID :
 To upload a new map to the database :
 
 ```
-[GET] http://<server_root>/api.php/newMap?name=<map_name>&author=<author>
+[POST] http://<server_root>/api.php/newMap?name=<map_name>&author=<author>
 ```
 
 with the folowing body :
