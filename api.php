@@ -8,6 +8,12 @@ error_reporting(-1);
 require('database/DatabaseManager.php');
 require('database/Map.php');
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+
 // Describe which method for each route
 $routes = [
     "/maps" => "GET",
@@ -51,7 +57,7 @@ function newMap($body){
     $author = isset($_GET['author']) ? htmlspecialchars($_GET['author']) : "admin";
     $map = new Map($name, $author, $body);
     $map->pushToDB();
-    return 'OK';
+    return '{"response": "OK"}';
 }
 
 try {
@@ -73,7 +79,6 @@ try {
         // Execute the route method
         $response = substr($path, 1)($body);
         http_response_code(200);
-        header('Content-Type: application/json');
         echo $response;
     } else {
         // Send 404 error
@@ -83,5 +88,4 @@ try {
 } catch (Exception $e) {
     http_response_code($e->getCode());
     echo '{"error": "' . $e->getMessage() . '"}';
-    header('Content-Type: application/json');
 }
