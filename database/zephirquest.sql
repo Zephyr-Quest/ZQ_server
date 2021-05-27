@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 4.9.7deb1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 17 mai 2021 à 15:45
--- Version du serveur :  8.0.23-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3
+-- Généré le : jeu. 27 mai 2021 à 22:43
+-- Version du serveur :  8.0.25-0ubuntu0.20.10.1
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,8 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `maps` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
+  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 

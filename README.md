@@ -39,3 +39,14 @@ with the folowing body :
     ]
 }
 ```
+
+## Ignore files
+
+*database/Crendials.php*
+
+```php
+abstract class Credentials {
+    const DB_USERNAME = "database username";
+    const DB_PASSWORD = "database password";
+}
+```
