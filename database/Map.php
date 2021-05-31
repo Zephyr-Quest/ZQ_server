@@ -78,7 +78,7 @@ class Map extends DatabaseManager {
         if(!isset($data['id'])) return null;
         $map = new Map($data['name'], $data['author'], json_decode($data['data'], true), $data['id']);
         $map->setSolvable($data['solvable'] == 1);
-        if(!is_null($data['solutions'])) $map->setSolutions($data['solutions']);
+        if(!is_null($data['solutions'])) $map->setSolutions(json_decode($data['solutions']));
         return $map;
     }
 
@@ -94,7 +94,7 @@ class Map extends DatabaseManager {
             $current_map = new Map($map['name'], $map['author'], json_decode($map['data'], true), $map['id']);
             $current_map->setSolvable($map['solvable'] == 1);
             if(!is_null($map['solutions']))
-                $current_map->setSolutions($map['solutions']);
+                $current_map->setSolutions(json_decode($map['solutions']));
             array_push($maps, $current_map);
         }
         $query->closeCursor();

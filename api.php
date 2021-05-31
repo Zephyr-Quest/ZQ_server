@@ -32,7 +32,7 @@ function maps($body){
             "author" => $map->getAuthor(),
             "solvable" => $map->isSolvable(),
             "items" => $map->getData(),
-            "solutions" => $map->getJsonSolutions()
+            "solutions" => $map->getSolutions()
         ];
         array_push($result, $map_object);
     }
@@ -50,7 +50,7 @@ function mapByName($body){
         "author" => $map->getAuthor(),
         "solvable" => $map->isSolvable(),
         "items" => $map->getData(),
-        "solutions" => $map->getJsonSolutions()
+        "solutions" => $map->getSolutions()
     ]);
 }
 
