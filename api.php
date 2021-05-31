@@ -18,7 +18,8 @@ header('Access-Control-Allow-Origin: *');
 $routes = [
     "/maps" => "GET",
     "/mapByName" => "GET",
-    "/newMap" => "POST"
+    "/newMap" => "POST",
+    "/validate" => "POST"
 ];
 
 // Get all of saved maps
@@ -29,7 +30,9 @@ function maps($body){
         $map_object = [
             "name" => $map->getName(),
             "author" => $map->getAuthor(),
-            "items" => $map->getData()
+            "solvable" => $map->isSolvable(),
+            "items" => $map->getData(),
+            "solutions" => $map->getJsonSolutions()
         ];
         array_push($result, $map_object);
     }
@@ -45,7 +48,9 @@ function mapByName($body){
     return json_encode([
         "name" => $map->getName(),
         "author" => $map->getAuthor(),
-        "items" => $map->getData()
+        "solvable" => $map->isSolvable(),
+        "items" => $map->getData(),
+        "solutions" => $map->getJsonSolutions()
     ]);
 }
 
@@ -57,6 +62,16 @@ function newMap($body){
     $author = isset($_GET['author']) ? htmlspecialchars($_GET['author']) : "admin";
     $map = new Map($name, $author, $body);
     $map->pushToDB();
+    return '{"response": "OK"}';
+}
+
+function validate($body){
+    if(!isset($_GET['name'])) throw new Exception("Missing argument 'name'", 400);
+    $name = htmlspecialchars($_GET['name']);
+    $map = Map::getMapByName($name);
+    if(is_null($map)) throw new Exception("The map '" . $name . "' doesn't exist", 400);
+    $map->setSolutions($body);
+    $map->markAsSolvable();
     return '{"response": "OK"}';
 }
 
