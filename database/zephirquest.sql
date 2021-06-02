@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 27 mai 2021 à 22:43
+-- Généré le : jeu. 03 juin 2021 à 00:46
 -- Version du serveur :  8.0.25-0ubuntu0.20.10.1
 -- Version de PHP : 7.4.9
 
@@ -32,7 +32,9 @@ CREATE TABLE `maps` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `data` text NOT NULL
+  `data` text NOT NULL,
+  `solvable` bit(1) NOT NULL DEFAULT b'0',
+  `solutions` text CHARACTER SET utf8 COLLATE utf8_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
