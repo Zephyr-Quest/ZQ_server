@@ -1,425 +1,468 @@
 @charset "UTF-8";
+
 /*______________ELEMENT DE LA PAGE EN GENERAL_________*/
+
 body {
-  -moz-user-select: none;
-  /*pour que le texte ne sois pas selectionnable*/
-  background-color: black;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: white;
-  background-image: url(img/maez-remove-black.jpeg);
-  background-size: 90%;
-  background-position: -380px 300px;
-  -webkit-user-select: none;
-  /* Chrome, Safari, Opéra depuis la version 15 */
+    -moz-user-select: none;
+    /*pour que le texte ne sois pas selectionnable*/
+    background-color: black;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    /* background-image: url(../img/maez-remove-black.jpeg);
+    background-size: 90%;
+    background-position: -380px 300px; */
+    background-color: black;
+    -webkit-user-select: none;
+    /* Chrome, Safari, Opéra depuis la version 15 */
 }
 
 .barre_haut {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .barre2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  text-align: center;
-  margin-right: 0%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    text-align: center;
+    margin-right: 0%;
 }
 
 .bouton a {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  font-family: 'Aclonica', sans-serif;
-  border: 4px solid #f5b815;
-  border-radius: 10px;
-  text-shadow: 1px 2px 3px black;
-  margin-left: 16%;
-  padding: 1% 7% 1%;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Aclonica', sans-serif;
+    border: 4px solid #f5b815;
+    border-radius: 10px;
+    text-shadow: 1px 2px 3px black;
+    margin-left: 16%;
+    padding: 1% 7% 1%;
 }
 
 .bouton a:hover {
-  background-color: #f5b815;
-}
-
-@media screen and (max-width: 1024px) {
-  td {
-    display: block;
-  }
-  .barre2 {
-    text-align: center;
-  }
-  .barre_haut {
-    display: block;
-  }
-  .aventurier img {
-    display: none;
-  }
-  .bouton {
-    margin-bottom: 40rem;
-  }
-  body {
-    background-position: bottom;
-    background-size: 150%;
-  }
-  main {
-    margin-left: -10%;
-  }
-  footer {
-    position: relative;
-    padding-bottom: 0%;
-  }
-  .groupe p {
-    text-align: center;
-    width: 80%;
-    margin-bottom: 10%;
-    height: 20%;
-  }
+    background-color: #f5b815;
 }
 
 .barre_haut a {
-  text-decoration: none;
-  color: white;
-  font-family: 'KoHo', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-family: 'KoHo', sans-serif;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 99%;
-  padding-bottom: 0%;
-  height: auto;
+    position: fixed;
+    bottom: 0;
+    width: 99%;
+    padding-bottom: 0%;
+    height: auto;
 }
 
 table {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  border: 2px solid none;
-  border-collapse: collapse;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid none;
+    border-collapse: collapse;
 }
 
 th,
 td {
-  border: 1px solid none;
-  color: white;
-  padding: 2.5rem;
-  font-family: 'KoHo', sans-serif;
-  letter-spacing: 0.2rem;
+    border: 1px solid none;
+    color: white;
+    padding: 2.5rem;
+    font-family: 'KoHo', sans-serif;
+    letter-spacing: 0.2rem;
 }
 
 .barre2:hover {
-  color: #f5b815;
+    color: #f5b815;
 }
 
 .bouton2 {
-  font-size: 1.5rem;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  border: 3px solid #f5b815;
-  border-radius: 10px;
-  background-color: #f5b815;
-  text-shadow: 1px 2px 3px black;
+    font-size: 1.5rem;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 3px solid #f5b815;
+    border-radius: 10px;
+    background-color: #f5b815;
+    text-shadow: 1px 2px 3px black;
 }
+
 
 /*.bouton2:hover {
             transition: 1s;
             transform: scale(1.2);
         }*/
+
 .bouton10 a {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  font-family: 'Aclonica', sans-serif;
-  border: 4px solid #f5b815;
-  border-radius: 10px;
-  text-shadow: 1px 2px 3px black;
-  margin-left: 16%;
-  padding: 1% 5.5% 1%;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Aclonica', sans-serif;
+    border: 4px solid #f5b815;
+    border-radius: 10px;
+    text-shadow: 1px 2px 3px black;
+    margin-left: 16%;
+    padding: 1% 5.5% 1%;
 }
 
 .bouton10 a:hover {
-  background-color: #f5b815;
+    background-color: #f5b815;
 }
 
 .bouton1:hover a {
-  color: #f5b815;
+    color: #f5b815;
 }
 
+
 /*__________PAGE INDEX______________*/
+
 .aventurier {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 61%;
-  margin-top: -400px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .aventurier img {
-  height: 60%;
+    height: 60%;
 }
 
 .groupe p {
-  font-size: 0.7rem;
-  color: #858585;
-  text-align: right;
-  font-family: 'KoHo', sans-serif;
-  padding-bottom: 0%;
-  /*text-shadow: 1px 2px 3px black;*/
+    font-size: 0.7rem;
+    color: #858585;
+    text-align: right;
+    font-family: 'KoHo', sans-serif;
+    padding-bottom: 0%;
+    /*text-shadow: 1px 2px 3px black;*/
 }
 
 .groupe a {
-  text-decoration: none;
-  color: #858585;
+    text-decoration: none;
+    color: #858585;
 }
 
 .titre {
-  text-align: left;
-  margin-top: 10%;
-  margin-left: 16%;
+    text-align: left;
+    margin-top: 10%;
+    margin-left: 16%;
 }
 
 .titre h1 {
-  font-size: 2.5rem;
-  text-shadow: 1px 2px 3px black;
-  font-family: 'KoHo', sans-serif;
-  padding: 0%;
-  margin-bottom: 2%;
-  letter-spacing: 0.15rem;
+    font-size: 2.5rem;
+    text-shadow: 1px 2px 3px black;
+    font-family: 'KoHo', sans-serif;
+    padding: 0%;
+    margin-bottom: 2%;
+    letter-spacing: 0.15rem;
 }
 
 .titre h2 {
-  font-size: 1.2rem;
-  font-family: 'KoHo', sans-serif;
-  margin-bottom: 5%;
-  letter-spacing: 0.15rem;
+    font-size: 1.2rem;
+    font-family: 'KoHo', sans-serif;
+    margin-bottom: 5%;
+    letter-spacing: 0.15rem;
 }
 
 .niveau a,
 .niveau2 a {
-  font-size: 1.5rem;
-  font-family: 'KoHo', sans-serif;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 5%;
-  letter-spacing: 0.15rem;
-  padding: 0.7%;
+    font-size: 1.5rem;
+    font-family: 'KoHo', sans-serif;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5%;
+    letter-spacing: 0.15rem;
+    padding: 0.7%;
 }
 
 .niveau a:hover,
 .niveau2 a:hover {
-  color: #f5b815;
+    color: #f5b815;
 }
 
 .niveau {
-  margin-top: -1%;
-  margin-left: 15%;
-  margin-bottom: 2.5%;
+    margin-top: -1%;
+    margin-left: 15%;
+    margin-bottom: 2.5%;
 }
 
 .niveau2 {
-  margin-top: -2.3%;
-  margin-left: 17.4%;
-  margin-bottom: 2.5%;
+    margin-top: -2.3%;
+    margin-left: 17.4%;
+    margin-bottom: 2.5%;
 }
 
 .flexrow0 {
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  margin-top: -15.5%;
-  margin-left: 15%;
-  padding: 1%;
-  margin-right: 65%;
-  resize: none;
-  font-family: 'KoHo', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    position: absolute;
+    border-radius: 10px;
+    margin-left: 15%;
+    padding: 0;
+    resize: none;
+    width: auto;
+    font-family: 'KoHo', sans-serif;
 }
 
 .flexrow0 input {
-  padding: 2.5%;
-  text-align: center;
-  border: 3px solid black;
-  background-color: rgba(255, 255, 255, 0.65);
-  outline: none;
+    padding: 10px 20px 10px;
+    text-align: center;
+    border: 3px solid black;
+    background-color: rgba(255, 255, 255, 0.65);
+    outline: none;
+    border-radius: 5px;
 }
 
+.flexrow0 input[type="submit"] {
+    background-color: transparent;
+    color: white;
+    text-shadow: 1px 2px 3px black;
+    border: 2px solid #f5b815;
+    margin-left: 10px;
+}
+
+.flexrow0 input[type="text"] {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-shadow: 1px 2px 3px black;
+    border: 2px solid #f5b815;
+}
+
+.flexrow0 input[type="submit"]:hover {
+    background-color: #f5b815;
+    color: white;
+    text-shadow: 1px 2px 3px black;
+    cursor: pointer;
+}
+
+
 /*_______GESTIONNAIRE DE CONTACT_______________*/
+
 .contact h1 {
-  text-align: left;
-  margin-left: 25%;
-  font-size: 2.5rem;
-  text-shadow: 1px 2px 3px black;
-  font-family: 'KoHo', sans-serif;
-  letter-spacing: 0.15rem;
+    text-align: left;
+    margin-left: 25%;
+    font-size: 2.5rem;
+    text-shadow: 1px 2px 3px black;
+    font-family: 'KoHo', sans-serif;
+    letter-spacing: 0.15rem;
 }
 
 fieldset {
-  border-radius: 8px;
-  border: 2px solid #747a7e;
-  padding: 1.5%;
-  margin-right: 25%;
-  margin-left: 25%;
-  resize: none;
+    border-radius: 8px;
+    border: 2px solid #747a7e;
+    padding: 1.5%;
+    margin-right: 25%;
+    margin-left: 25%;
+    resize: none;
 }
 
 legend {
-  font-family: 'KoHo', sans-serif;
-  font-size: 1.3rem;
-  padding-left: 1%;
-  padding-right: 1%;
+    font-family: 'KoHo', sans-serif;
+    font-size: 1.3rem;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .flexrow1 {
-  margin-bottom: 1%;
-  font-family: 'KoHo', sans-serif;
-  padding-bottom: 2%;
-  resize: none;
-}
-
-.flexrow2 {
-  margin-top: -11%;
-  margin-left: 55%;
-  margin-bottom: 1%;
-  font-family: 'KoHo', sans-serif;
-  padding-bottom: 2%;
-  resize: none;
+    margin-bottom: 1%;
+    font-family: 'KoHo', sans-serif;
+    padding-bottom: 2%;
+    resize: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .flexrow3 textarea {
-  margin-left: 0%;
-  margin-right: 50%;
-  resize: none;
-  width: 95%;
-  height: 40%;
+    margin-left: 0%;
+    margin-right: 50%;
+    resize: none;
+    width: 95%;
+    height: 40%;
 }
 
 .flexrow3 {
-  margin-bottom: 1%;
-  font-family: 'KoHo', sans-serif;
-  resize: none;
-}
-
-@media screen and (max-width: 1024px) {
-  fieldset {
-    margin-left: 10%;
-    margin-right: 2%;
-  }
-  .flexrow1 {
-    margin-left: 10%;
-    margin-top: 5%;
-  }
-  .flexrow2 {
-    margin-left: 10%;
-    margin-top: 5%;
-  }
-  .flexrow3 {
-    margin-left: 10%;
-    margin-right: 25%;
-  }
-  .btn {
-    margin-top: 10%;
-  }
-  footer .groupe p {
-    display: none;
-  }
-  .regles {
-    margin-right: 5%;
-  }
+    margin-bottom: 1%;
+    font-family: 'KoHo', sans-serif;
+    resize: none;
+    width: 100%;
 }
 
 .flexrow1 input,
 .flexrow2 input,
 .flexrow3 input {
-  outline: none;
+    outline: none;
 }
 
 input,
 textarea {
-  border: 2px solid #CCC;
-  border-radius: 5px;
-  font-family: 'KoHo', sans-serif;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    font-family: 'KoHo', sans-serif;
 }
 
 input[type="nom"],
 input[type="email"] {
-  min-width: 30%;
-  max-width: 100%;
-  padding: 8px;
-  display: block;
+    width: 90%;
+    padding: 8px;
+}
+
+.flexrow1 div {
+    width: 50%;
+    position: relative;
+    right: 0;
 }
 
 textarea[type="commentaire"] {
-  padding: 8px;
-  display: block;
+    padding: 8px;
+    display: block;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .btn {
-  color: white;
-  text-decoration: none;
-  font-family: 'KoHo', sans-serif;
-  text-shadow: 1px 2px 3px black;
-  border-radius: 8px;
-  padding: 2% 2%;
-  font-size: 1rem;
-  display: block;
-  width: 60%;
-  margin: 0 auto;
-  border: 5px solid #f5b815;
-  background-color: rgba(255, 255, 255, 0);
-  margin-top: 8%;
+    color: white;
+    text-decoration: none;
+    font-family: 'KoHo', sans-serif;
+    text-shadow: 1px 2px 3px black;
+    border-radius: 8px;
+    padding: 2% 2%;
+    font-size: 1rem;
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    border: 5px solid #f5b815;
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 8%;
 }
 
 .btn:hover {
-  background-color: #f5b815;
+    background-color: #f5b815;
 }
 
+
 /*_______________RULES________*/
+
 .regles {
-  text-align: left;
-  margin-top: 10%;
-  margin-left: 16%;
+    text-align: left;
+    margin-top: 10%;
+    margin-left: 16%;
+    padding-right: 12%;
 }
 
 .regles h1 {
-  font-size: 2.5rem;
-  text-shadow: 1px 2px 3px black;
-  font-family: 'KoHo', sans-serif;
-  padding: 0%;
-  margin-bottom: 2%;
-  letter-spacing: 0.15rem;
+    font-size: 2.5rem;
+    text-shadow: 1px 2px 3px black;
+    font-family: 'KoHo', sans-serif;
+    padding: 0%;
+    margin-bottom: 2%;
+    letter-spacing: 0.15rem;
 }
 
 .regles h2 {
-  font-size: 1.7rem;
-  font-family: 'KoHo', sans-serif;
-  margin-bottom: 5%;
-  letter-spacing: 0.15rem;
+    font-size: 1.7rem;
+    font-family: 'KoHo', sans-serif;
+    margin-bottom: 5%;
+    letter-spacing: 0.15rem;
 }
 
 .regles p {
-  font-size: 1.1rem;
-  font-family: 'KoHo', sans-serif;
-  text-align: justify;
-  margin-bottom: 5%;
-  letter-spacing: 0.15rem;
-  margin-right: 20%;
+    font-size: 1.1rem;
+    font-family: 'KoHo', sans-serif;
+    text-align: justify;
+    margin-bottom: 5%;
+    letter-spacing: 0.15rem;
+    /* margin-right: 20%; */
 }
+
+
 /*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 1024px) {
+    fieldset {
+        margin-left: 10%;
+        margin-right: 2%;
+    }
+    .flexrow2 {
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+    .flexrow3 {
+        /* margin-left: 10%; */
+        /* margin-right: 25%; */
+    }
+    .btn {
+        margin-top: 10%;
+    }
+    footer .groupe p {
+        display: none;
+    }
+    .regles {
+        margin-right: 5%;
+        padding-right: 0;
+    }
+    .regles p {
+        margin-right: 0%;
+    }
+    .logo img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+    td {
+        display: block;
+    }
+    .barre2 {
+        text-align: center;
+    }
+    .barre_haut {
+        display: block;
+    }
+    .bouton {
+        /* margin-bottom: 40rem; */
+    }
+    body {
+        background-position: bottom;
+        background-size: 150%;
+    }
+    main {
+        margin-left: -10%;
+    }
+    footer {
+        position: relative;
+        padding-bottom: 0%;
+    }
+    .groupe p {
+        text-align: center;
+        width: 80%;
+        margin-bottom: 10%;
+        height: 20%;
+    }
+    .aventurier {
+        display: none;
+    }
+}

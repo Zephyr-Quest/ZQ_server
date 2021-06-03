@@ -61,22 +61,25 @@ if(!isset($_SESSION['username'])) {
 
     <div id="bouton_commande" class="bouton_commande">
         <section class="play">
-            <i id="play_button" class="far fa-play-circle"></i><br>
+            <i title="Play" id="play_button" class="far fa-play-circle"></i><br>
         </section>
         <section class="pause">
-            <i id="pause_button" class="far fa-pause-circle"></i><br>
+            <i title="Pause" id="pause_button" class="far fa-pause-circle"></i><br>
         </section>
         <section class="reset">
-            <i id="reset_button" class="fas fa-redo-alt"></i><br>
+            <i title="Reset Map" id="reset_button" class="fas fa-redo-alt"></i><br>
         </section>
         <section class="clue">
-            <i id="giveClue" class="fas fa-key"></i>
+            <i title="Clue" id="giveClue" class="fas fa-key"></i>
         </section>
         <section class="modenightday">
-            <i id="daynight" class="fas fa-sun"></i>
+            <i title="Day/Night Mode" id="daynight" class="fas fa-sun"></i>
         </section>
         <section class="musiconoff">
-            <i id="cut_volume" class="fas fa-volume-up"></i>
+            <i title="Mute/Sounds" id="cut_volume" class="fas fa-volume-up"></i>
+        </section>
+        <section class="change_map">
+        <a href="created.php" style="text-decoration:none;color:white"><i title="Change Map" class="fas fa-list"></i></a>
         </section>
     </div>
 
@@ -130,7 +133,7 @@ if(!isset($_SESSION['username'])) {
         <span id="title_win">WELL DONE !</span>
         <br><br>
         <div>
-            <button>LEAVE</button>
+            <button onclick="document.location.href='created.php';" id="leavethegame">LEAVE</button>
             <button onclick="document.getElementById('gamewin').style.display='none';reset()">REPLAY</button>
         </div>
     </div>

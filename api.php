@@ -8,11 +8,7 @@ error_reporting(-1);
 require('database/DatabaseManager.php');
 require('database/Map.php');
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header("Access-Control-Allow-Headers: X-Requested-With");
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
 
 // Describe which method for each route
 $routes = [

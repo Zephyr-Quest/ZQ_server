@@ -18,16 +18,23 @@ function waitingBeforeStart() {
 var canvasOffsett = $("#obstacles").offset();
 var offsetYY = canvasOffsett.top;
 // console.log(offsetYY)
+let numberOfTry = 0
 
 window.onload = () => {
     document.getElementById("music").volume = '0.2'
     document.getElementById("music").play()
         //console.log(offsetX, offsetY)
-    // if (offsetYY != 276) {
-    //     canvas.style.display = 'none'
-    //     canvasObstacles.style.display = 'none'
-    // } else {
+        // if (offsetYY != 276) {
+        //     canvas.style.display = 'none'
+        //     canvasObstacles.style.display = 'none'
+        // } else {
         // }
+    for (let index = 0; index < obstaclesArray.length; index++) {
+        if (obstaclesArray[index].id == 1) {
+            numberOfTry++
+        }
+
+    }
     getStarted()
 }
 
@@ -64,12 +71,12 @@ function getStarted() {
     clearMap()
     const urlParams = new URLSearchParams(window.location.search);
     console.log(window.location.href)
-    if(urlParams.has('map_name')){
+    if (urlParams.has('map_name')) {
         const map_name = urlParams.get('map_name');
         console.log(map_name)
         getMapByName(map_name)
             .then((data) => {
-                if(data.solvable){
+                if (data.solvable) {
                     map = data.items
                     console.log(data);
                     solutions = data.solutions
@@ -264,7 +271,6 @@ function timer() {
 /**
  * !NUMBER OF TRY
  */
-let numberOfTry = 3
 
 function tryNumber() {
     numberOfTry--

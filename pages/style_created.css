@@ -7,9 +7,10 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             color: white;
-            background-image: url(../img/maez-remove-black.jpeg);
+            /* background-image: url(../img/maez-remove-black.jpeg);
             background-size: 90%;
-            background-position: -380px 300px;
+            background-position: -380px 300px; */
+            background-color: black;
             -webkit-user-select: none;
             /* Chrome, Safari, Opéra depuis la version 15 */
         }
@@ -70,9 +71,8 @@
             position: relative;
             bottom: 0;
             width: 99%;
-            padding-top: 20%;
             padding-bottom: 0%;
-            height: 4.5%;
+            padding-top: 20px;
         }
         
         table {
@@ -148,17 +148,29 @@
         
         .map_perso {
             background-color: white;
-            color: black;
-            margin-left: 15%;
-            margin-right: 15%;
+            border: solid 2px #f5b815;
+            color: white;
+            left: 0;
+            width: calc(80% - 2.4% - 4px);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            /* position: relative; */
+            display: flex;
+            /* flex-direction: row; */
+            align-items: center;
+            /* margin-left: 15%;
+            margin-right: 15%; */
             margin-top: 2%;
             padding: 1.2%;
             border-radius: 15px;
+            text-transform: uppercase;
         }
         
         .map_perso p {
             font-family: 'KoHo', sans-serif;
             color: black;
+            align-items: center;
             text-decoration: none;
         }
         
@@ -168,9 +180,85 @@
         
         .nom_mec {
             margin-left: 65%;
-            margin-top: -4.2%;
+            position: absolute
         }
         
         .nom_mec:hover {
             color: #f5b815;
+        }
+        
+        @media screen and (max-width: 1024px) {
+            fieldset {
+                margin-left: 10%;
+                margin-right: 2%;
+            }
+            .flexrow2 {
+                margin-left: 10%;
+                margin-top: 5%;
+            }
+            .flexrow3 {
+                /* margin-left: 10%; */
+                /* margin-right: 25%; */
+            }
+            .btn {
+                margin-top: 10%;
+            }
+            footer .groupe p {
+                display: none;
+            }
+            .regles {
+                margin-right: 5%;
+                padding-right: 0;
+            }
+            .regles p {
+                margin-right: 0%;
+            }
+            .logo img {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%)
+            }
+            td {
+                display: block;
+            }
+            .barre2 {
+                text-align: center;
+            }
+            .barre_haut {
+                display: block;
+            }
+            .bouton {
+                /* margin-bottom: 40rem; */
+            }
+            body {
+                background-position: bottom;
+                background-size: 150%;
+            }
+            footer {
+                position: relative;
+                padding-bottom: 0%;
+            }
+            .groupe p {
+                text-align: center;
+                width: 80%;
+                margin-bottom: 10%;
+                height: 20%;
+            }
+            .aventurier {
+                display: none;
+            }
+            .barre_haut {
+                position: relative;
+                margin-left: 0;
+            }
+            .logo {
+                margin: 0;
+            }
+            .barre2 {
+                margin: 0;
+            }
+            .main_create {
+                padding: 0;
+                /* text-align: center; */
+            }
         }
