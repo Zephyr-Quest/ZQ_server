@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+/*______________ELEMENT DE LA PAGE EN GENERAL_________*/
+
+body {
+    background-color: black;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.barre_haut {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.barre2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    text-align: center;
+    margin-right: 0%;
+}
+
+.barre_haut a {
+    text-decoration: none;
+    color: white;
+    font-family: 'KoHo', sans-serif;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 99%;
+    padding-top: 2%;
+    height: 4.5%;
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    /*pour que les bordures soient fusionnées*/
+}
+
+th,
+td {
+    border: 1px solid black;
+    color: white;
+    padding: 2.5rem;
+    font-family: 'KoHo', sans-serif;
+    letter-spacing: 0.2rem;
+}
+
+.barre2:hover {
+    color: #f5b815;
+}
+
+.bouton2 {
+    font-size: 1.5rem;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 3px solid #f5b815;
+    border-radius: 10px;
+    background-color: #f5b815;
+    text-shadow: 1px 2px 3px black;
+}
+
+
+/*.bouton2:hover {
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}*/
+
+.bouton1:hover a {
+    color: #f5b815;
+}
+
+
+/*__________PAGE INDEX______________*/
+
+.aventurier {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 61%;
+    margin-top: -400px;
+}
+
+.aventurier img {
+    height: 60%;
+}
+
+.groupe p {
+    font-size: 0.7rem;
+    color: #858585;
+    text-align: right;
+    font-family: 'KoHo', sans-serif;
+    padding-bottom: 0%;
+    /*text-shadow: 1px 2px 3px black;*/
+}
+
+.groupe a {
+    text-decoration: none;
+    color: #858585;
+}
+
+.titre {
+    text-align: left;
+    margin-top: 10%;
+    margin-left: 16%;
+}
+
+.titre h1 {
+    font-size: 2.5rem;
+    text-shadow: 1px 2px 3px black;
+    font-family: 'KoHo', sans-serif;
+    padding: 0%;
+    margin-bottom: 2%;
+    letter-spacing: 0.15rem;
+}
+
+.titre h2 {
+    font-size: 1.2rem;
+    font-family: 'KoHo', sans-serif;
+    margin-bottom: 5%;
+    letter-spacing: 0.15rem;
+}
+
+
+/*__________PAGE JEU _____________*/
+
+.fond_jeu {
+    margin-left: 29%;
+    margin-top: -8%;
+    padding: 0%;
+}
+
+.bouton_commande {
+    margin-left: 26%;
+    margin-top: -0.7%;
+}
+
+.play,
+.pause,
+.reset {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.timer {
+    margin-top: -2%;
+    margin-left: 29%;
+    font-size: 2rem;
+    font-family: 'KoHo', sans-serif;
+}
+
+.account {
+    text-align: right;
+    margin-right: 28%;
+    font-size: 2rem;
+    margin-top: -3.7%;
+    font-family: 'KoHo', sans-serif;
+}
+
+.account p {
+    font-size: 2rem;
+}
+
+.shots1 {
+    font-size: 0.8rem;
+    margin-right: 5%;
+}
+
+.shots2 {
+    margin-top: -2.7%;
+}

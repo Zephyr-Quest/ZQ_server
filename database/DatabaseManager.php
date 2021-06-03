@@ -1,5 +1,5 @@
 <?php
-require('database/Credentials.php');
+require('Credentials.php');
 
 /**
  * A class to manage the database

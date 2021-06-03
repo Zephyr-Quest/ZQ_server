@@ -1,0 +1,176 @@
+        /*______________ELEMENT DE LA PAGE EN GENERAL_________*/
+        
+        body {
+            -moz-user-select: none;
+            /*pour que le texte ne sois pas selectionnable*/
+            background-color: black;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            background-image: url(../img/maez-remove-black.jpeg);
+            background-size: 90%;
+            background-position: -380px 300px;
+            -webkit-user-select: none;
+            /* Chrome, Safari, Opéra depuis la version 15 */
+        }
+        /*.barre_haut {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+        }
+        
+        .barre2 {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-right: 0%;
+        }*/
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .rectangle {
+            background-color: black;
+            padding-bottom: 9%;
+            margin-top: -5%;
+            position: fixed;
+            width: 100%;
+            height: 10%;
+        }
+        
+        .barre_haut {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            margin-top: 0%;
+            margin-left: 20%;
+        }
+        
+        .logo {
+            margin-right: -8%;
+        }
+        
+        .barre2 {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-left: 44%;
+        }
+        
+        .barre_haut a {
+            text-decoration: none;
+            color: white;
+            font-family: 'KoHo', sans-serif;
+        }
+        
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 99%;
+            padding-top: 20%;
+            padding-bottom: 0%;
+            height: 4.5%;
+        }
+        
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid none;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            border: 1px solid none;
+            color: white;
+            padding: 2.5rem;
+            font-family: 'KoHo', sans-serif;
+            letter-spacing: 0.2rem;
+        }
+        
+        .barre2:hover {
+            color: #f5b815;
+        }
+        
+        .bouton2 {
+            font-size: 1.5rem;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border: 3px solid #f5b815;
+            border-radius: 10px;
+            background-color: #f5b815;
+            text-shadow: 1px 2px 3px black;
+        }
+        /*.bouton2:hover {
+            transition: 1s;
+            transform: scale(1.2);
+        }*/
+        
+        .bouton1:hover a {
+            color: #f5b815;
+        }
+        
+        .groupe p {
+            font-size: 0.7rem;
+            color: #858585;
+            text-align: right;
+            font-family: 'KoHo', sans-serif;
+            padding-bottom: 0%;
+            /*text-shadow: 1px 2px 3px black;*/
+        }
+        
+        .groupe a {
+            text-decoration: none;
+            color: #858585;
+        }
+        /*_________________created_______________*/
+        
+        .main_create {
+            padding-top: 12%;
+        }
+        
+        .created_titre h1 {
+            text-align: center;
+            margin-left: 0%;
+            color: #f5b815;
+            font-size: 3rem;
+            text-shadow: 1px 2px 3px black;
+            font-family: 'KoHo', sans-serif;
+            letter-spacing: 0.15rem;
+        }
+        
+        .map_perso {
+            background-color: white;
+            color: black;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-top: 2%;
+            padding: 1.2%;
+            border-radius: 15px;
+        }
+        
+        .map_perso p {
+            font-family: 'KoHo', sans-serif;
+            color: black;
+            text-decoration: none;
+        }
+        
+        .nom_map {
+            margin-left: 5%;
+        }
+        
+        .nom_mec {
+            margin-left: 65%;
+            margin-top: -4.2%;
+        }
+        
+        .nom_mec:hover {
+            color: #f5b815;
+        }
