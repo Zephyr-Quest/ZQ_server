@@ -1,13 +1,13 @@
-const HOST_IP = 'localhost'
-const API_ROOT = 'http://' + HOST_IP + '/ZephyrQuest/server/api.php'
+const HOST_IP = 'localhost:8080'
+const API_ROOT = 'http://' + HOST_IP + '/server/api.php'
 
 /**
  * Get all saved maps in the database
- * @return {Promise} A Promise for results 
+ * @return {Promise} A Promise for results
  */
 function getAllMaps() {
     return new Promise((resolve, reject) => {
-        fetch(API_ROOT + '/maps')
+        fetch(API_ROOT + '/maps', {mode: 'no-cors'})
             .then((data) => data.json())
             .then((body) => resolve(body))
             .catch((err) => reject(err))
@@ -17,11 +17,11 @@ function getAllMaps() {
 /**
  * Get a saved map by its name
  * @param String The map name
- * @return {Promise} A Promise for result 
+ * @return {Promise} A Promise for result
  */
 function getMapByName(name) {
     return new Promise((resolve, reject) => {
-        fetch(API_ROOT + '/mapByName?name=' + name)
+        fetch(API_ROOT + '/mapByName?name=' + name, {mode: 'no-cors'})
             .then((data) => data.json())
             .then((body) => resolve(body))
             .catch((err) => reject(err))
@@ -31,7 +31,7 @@ function getMapByName(name) {
 /**
  * Upload a new map to the database
  * @param Object Map info
- * @return {Promise} A Promise for result 
+ * @return {Promise} A Promise for result
  */
 function uploadNewMap(map) {
     return new Promise((resolve, reject) => {
@@ -39,7 +39,7 @@ function uploadNewMap(map) {
         const options = {
             method: 'POST',
             body: JSON.stringify(map.items),
-            mode: 'no-cors',
+	    mode: 'no-cors',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
