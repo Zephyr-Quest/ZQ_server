@@ -7,7 +7,7 @@ require('Credentials.php');
 abstract class DatabaseManager
 {
     const DB_HOST = "localhost";
-    const DB_NAME = "zephirquest";
+    const DB_NAME = "zephyrquest";
     const DB_USERNAME = Credentials::DB_USERNAME;
     const DB_PASSWORD = Credentials::DB_PASSWORD;
 
