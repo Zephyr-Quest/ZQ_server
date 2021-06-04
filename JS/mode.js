@@ -29,13 +29,16 @@ window.onload = () => {
         //     canvasObstacles.style.display = 'none'
         // } else {
         // }
-    for (let index = 0; index < obstaclesArray.length; index++) {
-        if (obstaclesArray[index].id == 1) {
+    getStarted()
+}
+
+function getNumberOfTry() {
+    for (let index = 0; index < map.length; index++) {
+        if (map[index].id == 1) {
             numberOfTry++
         }
-
     }
-    getStarted()
+    numberOfTry++
 }
 
 
@@ -89,6 +92,7 @@ function getStarted() {
                 console.error(err);
             })
         waitingBeforeStart()
+
     } else {
         // The map param is not found
     }
@@ -99,12 +103,13 @@ function getStarted() {
 
 function start() {
     //document.getElementById("music").pause()
+    getNumberOfTry()
+
     document.getElementById("r_shots").innerHTML = "Remaining Shots : " + numberOfTry
     timer()
     console.log("C'est parti ! (START)")
     light.width = 200
     state = 0;
-    tempIdx = 3
     setTimeout(() => {
         player.x = startX
         player.y = startY
@@ -143,7 +148,13 @@ document.getElementById("pause_button").addEventListener("click", pause);
 document.getElementById("reset_button").addEventListener("click", reset);
 
 function init() {
+    document.getElementById("gamelost").style.display = "none"
+    document.getElementById("gamelost").innerHTML = "GAME LOST !"
     cancelled = true
+    drawLightsBack()
+    lightsOnPlayer()
+    drawPlayerWait('right', player.x, player.y)
+
     if (
         document.getElementById("pause_button").style.color == "gray"
     ) {
@@ -152,6 +163,7 @@ function init() {
         document.getElementById("play_button").setAttribute("disabled", "")
         document.getElementById("pause_button").style.color = "white"
         document.getElementById("reset_button").style.color = "white"
+        timer()
     } else {
         document.getElementById("play_button").setAttribute("disabled", "")
         document.getElementById("play_button").style.color = "gray"
@@ -165,9 +177,11 @@ function init() {
 }
 
 function pause() {
+    document.getElementById("gamelost").innerHTML = "PAUSE"
+    document.getElementById("gamelost").style.display = "flex"
     console.log("PAUSE")
-    document.getElementById("timer").innerHTML = minute + ":" + second
     clearInterval(timeVar)
+    document.getElementById("timer").innerHTML = minute + ":" + second
     timerPlay = false
     document.getElementById("play_button").style.color = "white"
     document.getElementById("pause_button").style.color = "gray"
@@ -180,7 +194,7 @@ function pause() {
  */
 
 function reset() {
-    numberOfTry = 3
+    // numberOfTry = getNumberOfTry
     minute = 0
     second = 0
     document.getElementById("timer").innerHTML = "00:00"
@@ -211,8 +225,10 @@ function reset() {
         const img = new Image();
         img.src = '../img/right/character_stopped.png';
         ctx.drawImage(img, player.x - player.radius, player.y - player.radius, player.radius * 2, player.radius * 2)
+
         initializeObstacles()
         drawLightsBack()
+        drawPlayerWait('right', player.x, player.y)
 
     }, 50);
     player.x = startX
@@ -273,7 +289,7 @@ function timer() {
  */
 
 function tryNumber() {
-    numberOfTry--
+    numberOfTry -= 1
     let r_shots = "Remaining Shots : " + numberOfTry
     document.getElementById("r_shots").innerHTML = r_shots
 }
@@ -395,22 +411,21 @@ document.getElementById("giveClue").addEventListener("click", giveClue)
 function giveClue() {
     console.log("INDICE")
     pause()
+    console.log(solutions)
     for (let index = 0; index < solutions.length; index++) {
         let xtempsol = solutions[index].x
         let ytempsol = solutions[index].y
-        if (xtempsol != player.cooX && ytempsol != ytempsol) {
-            ctx.clearRect(xtempsol * 100 - 10, ytempsol * 100, 100, 100)
-        }
+        ctx.clearRect(xtempsol * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+        drawPlayerWait('right', player.x, player.y)
     }
     setTimeout(() => {
         ctx.fillStyle = "black"
         for (let index = 0; index < solutions.length; index++) {
             let xtempsol = solutions[index].x
             let ytempsol = solutions[index].y
-            if (xtempsol != player.cooX && ytempsol != ytempsol) {
-                ctx.fillRect(xtempsol * 100 - 10, ytempsol * 100, 100, 100)
-            }
+            ctx.fillRect(xtempsol * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
         }
+        drawPlayerWait('right', player.x, player.y)
         init()
-    }, 2000);
+    }, 5000);
 }

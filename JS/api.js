@@ -1,5 +1,6 @@
-const HOST_IP = 'localhost:8080'
-const API_ROOT = 'http://' + HOST_IP + '/server/api.php'
+// To update
+const HOST_IP = '10.224.1.225'
+const API_ROOT = 'http://' + HOST_IP + '/ZephyrQuest/server/api.php'
 
 /**
  * Get all saved maps in the database
@@ -7,7 +8,7 @@ const API_ROOT = 'http://' + HOST_IP + '/server/api.php'
  */
 function getAllMaps() {
     return new Promise((resolve, reject) => {
-        fetch(API_ROOT + '/maps', {mode: 'no-cors'})
+        fetch(API_ROOT + '/maps', { mode: 'no-cors' })
             .then((data) => data.json())
             .then((body) => resolve(body))
             .catch((err) => reject(err))
@@ -21,7 +22,7 @@ function getAllMaps() {
  */
 function getMapByName(name) {
     return new Promise((resolve, reject) => {
-        fetch(API_ROOT + '/mapByName?name=' + name, {mode: 'no-cors'})
+        fetch(API_ROOT + '/mapByName?name=' + name, { mode: 'no-cors' })
             .then((data) => data.json())
             .then((body) => resolve(body))
             .catch((err) => reject(err))
@@ -39,7 +40,7 @@ function uploadNewMap(map) {
         const options = {
             method: 'POST',
             body: JSON.stringify(map.items),
-	    mode: 'no-cors',
+            mode: 'no-cors',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
