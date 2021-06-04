@@ -22,13 +22,15 @@ let numberOfTry = 0
 
 window.onload = () => {
     document.getElementById("music").volume = '0.2'
-    document.getElementById("music").play()
-        //console.log(offsetX, offsetY)
-        // if (offsetYY != 276) {
-        //     canvas.style.display = 'none'
-        //     canvasObstacles.style.display = 'none'
-        // } else {
-        // }
+    setTimeout(() => {
+        document.getElementById("music").play()
+    }, 50);
+    //console.log(offsetX, offsetY)
+    // if (offsetYY != 276) {
+    //     canvas.style.display = 'none'
+    //     canvasObstacles.style.display = 'none'
+    // } else {
+    // }
     getStarted()
 }
 
@@ -39,6 +41,8 @@ function getNumberOfTry() {
         }
     }
     numberOfTry++
+    let r_shots = "Remaining Shots : " + numberOfTry
+    document.getElementById("r_shots").innerHTML = r_shots
 }
 
 
@@ -103,8 +107,8 @@ function getStarted() {
 
 function start() {
     //document.getElementById("music").pause()
+    numberOfTry = 0
     getNumberOfTry()
-
     document.getElementById("r_shots").innerHTML = "Remaining Shots : " + numberOfTry
     timer()
     console.log("C'est parti ! (START)")
@@ -197,10 +201,13 @@ function reset() {
     // numberOfTry = getNumberOfTry
     minute = 0
     second = 0
+    numberOfTry = 0
     document.getElementById("timer").innerHTML = "00:00"
     clearInterval(timeVar)
     timerPlay = false
     timer()
+    getNumberOfTry()
+
     console.log("C'est parti ! (RESET)")
     document.getElementById("play_button").style.color = "gray"
     document.getElementById("pause_button").style.color = "white"
@@ -343,6 +350,7 @@ let saveLightSmall
 function dayNight() {
 
     if (daynighticon.className == "fas fa-sun") {
+        document.getElementById("giveClue").style.color = "black"
         daynighticon.className = "far fa-moon";
         saveLightWidth = light.width
         saveLightBig = light.background_big
@@ -355,6 +363,7 @@ function dayNight() {
 
     } else {
         daynighticon.className = "fas fa-sun"
+        document.getElementById("giveClue").style.color = "white"
         light.width = saveLightWidth
         light.background_big = saveLightBig
         light.background_small = saveLightSmall
@@ -410,13 +419,43 @@ document.getElementById("giveClue").addEventListener("click", giveClue)
 
 function giveClue() {
     console.log("INDICE")
-    pause()
-    console.log(solutions)
+    console.log("PAUSE")
+    clearInterval(timeVar)
+    document.getElementById("timer").innerHTML = minute + ":" + second
+    timerPlay = false
+    document.getElementById("play_button").style.color = "white"
+    document.getElementById("pause_button").style.color = "gray"
+    document.getElementById("reset_button").style.color = "white"
+    playing = false;
     for (let index = 0; index < solutions.length; index++) {
         let xtempsol = solutions[index].x
         let ytempsol = solutions[index].y
         ctx.clearRect(xtempsol * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
         drawPlayerWait('right', player.x, player.y)
+        if (xtempsol != 14) {
+            if (obstaclesArray[ytempsol * 15 + xtempsol + 1].id == 1) {
+                ctx.clearRect((xtempsol + 1) * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                drawPlayerWait('right', player.x, player.y)
+            }
+        }
+        if (xtempsol != 0) {
+            if (obstaclesArray[ytempsol * 15 + xtempsol - 1].id == 1) {
+                ctx.clearRect((xtempsol - 1) * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                drawPlayerWait('right', player.x, player.y)
+            }
+        }
+        if (ytempsol != 14) {
+            if (obstaclesArray[(ytempsol + 1) * 15 + xtempsol].id == 1) {
+                ctx.clearRect(xtempsol * player.moveSize + startX - 31, (ytempsol + 1) * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                drawPlayerWait('right', player.x, player.y)
+            }
+        }
+        if (ytempsol != 0) {
+            if (obstaclesArray[(ytempsol - 1) * 15 + xtempsol].id == 1) {
+                ctx.clearRect(xtempsol * player.moveSize + startX - 31, (ytempsol - 1) * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                drawPlayerWait('right', player.x, player.y)
+            }
+        }
     }
     setTimeout(() => {
         ctx.fillStyle = "black"
@@ -424,6 +463,30 @@ function giveClue() {
             let xtempsol = solutions[index].x
             let ytempsol = solutions[index].y
             ctx.fillRect(xtempsol * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+            if (xtempsol != 14) {
+                if (obstaclesArray[ytempsol * 15 + xtempsol + 1].id == 1) {
+                    ctx.fillRect((xtempsol + 1) * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                    drawPlayerWait('right', player.x, player.y)
+                }
+            }
+            if (xtempsol != 0) {
+                if (obstaclesArray[ytempsol * 15 + xtempsol - 1].id == 1) {
+                    ctx.fillRect((xtempsol - 1) * player.moveSize + startX - 31, ytempsol * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                    drawPlayerWait('right', player.x, player.y)
+                }
+            }
+            if (ytempsol != 14) {
+                if (obstaclesArray[(ytempsol + 1) * 15 + xtempsol].id == 1) {
+                    ctx.fillRect(xtempsol * player.moveSize + startX - 31, (ytempsol + 1) * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                    drawPlayerWait('right', player.x, player.y)
+                }
+            }
+            if (ytempsol != 0) {
+                if (obstaclesArray[(ytempsol - 1) * 15 + xtempsol].id == 1) {
+                    ctx.fillRect(xtempsol * player.moveSize + startX - 31, (ytempsol - 1) * player.moveSize + startX - 25, player.moveSize, player.moveSize);
+                    drawPlayerWait('right', player.x, player.y)
+                }
+            }
         }
         drawPlayerWait('right', player.x, player.y)
         init()
